@@ -70,7 +70,10 @@ if mkarchive == True:
     archive_name = f"{user}_{now.month}-{now.day}-{now.year}"
     print(f"Creating archive [{archive_name}]")
     shutil.make_archive(archive_name, 'zip', target_folder)
-    shutil.move(pathlib.Path(f"{target_folder}/{archive_name}.zip"), save_location)
+    if operating_system == 'Windows':
+        shutil.move(pathlib.Path(f"{target_folder}/{archive_name}.zip"), pathlib.Path(save_location))
+    else :
+        os.system(f"mv {target_folder}/{archive_name}.zip {pathlib.Path(save_location)}")
     os.chdir(pathlib.Path(save_location))
     print(f"attempting to delete {target_folder}")
     try :

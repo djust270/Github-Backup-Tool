@@ -8,7 +8,6 @@ import argparse
 import platform
 from datetime import datetime
 import shutil
-from time import sleep
 # add script arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", dest="save_location" , type=str, help="Location to save repositories")
@@ -31,6 +30,9 @@ def remove_targetfolder(operating_system, target_folder):
             os.system(f"powershell.exe -command \"remove-item {target_folder} -recurse -force\"")         
     elif operating_system == 'Linux' or operating_system == 'Darwin':
             os.system(f"rm -r -f {target_folder}")
+
+def clone_repos(git_url):
+    os.system(f"git clone {git_url}")
 
 # if save_location doesnt exist, attempt to create it
 try:
@@ -62,7 +64,7 @@ base_url = (f"https://api.github.com/users/{user}/repos")
 get = requests.get(base_url)
 json_response = get.json()
 for a in json_response : 
-    os.system(f"git clone {a['html_url']}")
+    clone_repos(git_url=a["html_url"])
 if mkarchive == True:
     now = datetime.now()
     archive_name = f"{user}_{now.month}-{now.day}-{now.year}"
@@ -70,7 +72,6 @@ if mkarchive == True:
     shutil.make_archive(archive_name, 'zip', target_folder)
     shutil.move(pathlib.Path(f"{target_folder}/{archive_name}.zip"), save_location)
     os.chdir(pathlib.Path(save_location))
-    sleep(5)
     print(f"attempting to delete {target_folder}")
     try :
         remove_targetfolder(operating_system=operating_system, target_folder=target_folder)

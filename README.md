@@ -15,7 +15,7 @@ Works on Windows, MacOS and Linux
 ## Usage
 Download and run script or grab the precompiled executable from releases. 
 
-Open your terminal emulator of choice, run GithubBackupTool.exe -s (full folder path save location) -u (Github UserName) 
+Open your terminal emulator of choice, run GithubBackupTool.py -s (full folder path save location) -u (Github UserName) 
 ### Optional flags
 **-a** will zip all repos into a single archive at the root of the save location with the name *GitHubUsername-TodaysDate.zip
 
@@ -23,8 +23,8 @@ Open your terminal emulator of choice, run GithubBackupTool.exe -s (full folder 
 
 ### Examples
 
-**GithubBackupTool.exe -s C:\users\Dave -u djust270**
+**GithubBackupTool.py -s C:\users\Dave -u djust270**
 * This will clone all github repos from user *djust270* and save to *C:\users\Dave\djust270*
 
-**GithubBackupTool.exe -s C:\users\Dave -u djust270 -a**
-* This will clone and zip all github repos from user *djust270* and save to the *C:\users\Dave\djust270-(Month-Day-Year).zip*
+**GithubBackupTool.py -s /home/Dave -u djust270 -a**
+* This will clone and zip all github repos from user *djust270* and save to the */home/Dave/djust270-(Month-Day-Year).zip*

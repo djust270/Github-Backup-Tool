@@ -25,5 +25,6 @@ Open your terminal emulator of choice, run GithubBackupTool.exe -s (full folder 
 
 GithubBackupTool.exe -s C:\users\Dave -u djust270 
 * This will clone all github repos from user *djust270* and save to *C:\users\Dave\djust270*
+
 GithubBackupTool.exe -s C:\users\Dave -u djust270 -a
 * This will clone and zip all github repos from user *djust270* and save to the *C:\users\Dave\djust270-(Month-Day-Year).zip*

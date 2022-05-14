@@ -2,6 +2,8 @@
 
 Introducing the github backup tool. A simple tool to backup all of the Github repositories of a specified Github user. 
 
+![Alt text](GithubBackup.png?raw=true "GithubBackup.exe")
+
 ## Features
 Clone all of the Github repostories. Just specify a folder location to clone to and a Github username. Optionally, zip all repos with (username)-(todays date) 
 for simple archiving. 
